@@ -1,0 +1,15 @@
+def find_stepping_numbers(n, m):
+    stepping_numbers = []
+    for num in range(n, m+1):
+        num_str = str(num)
+        is_stepping = True
+        for i in range(len(num_str) - 1):
+            if abs(int(num_str[i]) - int(num_str[i+1])) != 1:
+                is_stepping = False
+                break
+        if is_stepping:
+            stepping_numbers.append(num)
+    return stepping_numbers
+n, m = map(int, input().split())
+stepping_numbers = find_stepping_numbers(n, m)
+print(*stepping_numbers)
